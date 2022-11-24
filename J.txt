@@ -1,0 +1,1586 @@
+//Q1 Implement java program to perform 2*2 matrix addition and multiplication.
+//save matrix1.java
+
+public class matrix1
+{      
+    public static void main(String args[])
+    {        
+     int a[][]={{2,2,2},{2,2,2}};    
+     int b[][]={{2,2,2},{2,2,2}};    
+     int sum[][]=new int[2][2];   
+       
+     int c[][]=new int[2][2];  
+        
+         
+     for(int i=0;i<2;i++)
+     {    
+      for(int j=0;j<2;j++)
+      {    
+       c[i][j]=0;      
+       for(int k=0;k<2;k++)      
+       {      
+       c[i][j]+=a[i][k]*b[k][j];      
+       }
+       System.out.print(c[i][j]+" ");  
+      }
+      System.out.println();
+     }
+     System.out.println("Addition of Matrix");  
+
+     for(int i=0;i<2;i++)
+     {    
+      for(int j=0;j<2;j++)
+      {                
+       sum[i][j]=a[i][j]+b[i][j];  
+       System.out.print(sum[i][j]+" "); 
+      }
+      System.out.println();
+    } 
+    
+       
+   }
+} 
+
+OR OR
+1. Matrix operations:
+#addition
+import java.util.Scanner;
+ public class MatrixAddition
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+         
+        System.out.println("Enter The Number Of Rows");
+         
+        int row = sc.nextInt();
+         
+        System.out.println("Enter The Number Of Columns");
+         
+        int cols = sc.nextInt();
+         
+        int[][] matrix1 = new int[row][cols];
+         
+        int[][] matrix2 = new int[row][cols];
+         
+        int[][] sum = new int[row][cols];
+         
+        System.out.println("Enter The Data For First Matrix :");
+         
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+         
+        System.out.println("Enter The Data For Second Matrix :");
+         
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+         
+        System.out.println("First Matrix = ");
+         
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                System.out.print(matrix1[i][j]+"\t");
+            }
+             
+            System.out.println();
+        }
+         
+        System.out.println("Second Matrix = ");
+         
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                System.out.print(matrix2[i][j]+"\t");
+            }
+             
+            System.out.println();
+        }
+         
+        System.out.println("Sum = ");
+         
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+                 
+                System.out.print(sum[i][j]+"\t");
+            }
+             
+            System.out.println();
+        }
+    }
+}
+#multiplication
+public class MatrixMultiplicationExample{  
+public static void main(String args[]){     
+int a[][]={{1,1,1},{2,2,2},{3,3,3}};    
+int b[][]={{1,1,1},{2,2,2},{3,3,3}};    
+    
+//creating another matrix to store the multiplication of two matrices    
+int c[][]=new int[3][3];  
+     
+for(int i=0;i<3;i++){    
+for(int j=0;j<3;j++){    
+c[i][j]=0;      
+for(int k=0;k<3;k++)      
+{      
+c[i][j]+=a[i][k]*b[k][j];      
+}//end of k loop  
+System.out.print(c[i][j]+" ");   
+}//end of j loop  
+System.out.println();//new line    
+}    
+}} 
+
+//Q2 Create a class called Employee that includes three pieces of information as instance variables- first name, a last name and a monthly salary. Your class should have a constructor that initializes the three instance variables. 
+//Provide a set and a get method for each instance variable. If the monthly salary is not positive, set it to 0.0. Write a test application named EmployeeTest that demonstrates class Employee's capabilities. Create two Employee 
+//objects and display each object's yearly salary. Then give each Employee a 10% raise and display each Employee's yearly salary again.
+//save EmployeeTest.java
+
+import java.util.*;
+
+class Employee
+{
+     public
+          String fname,lname;
+          double mnthl_sal;
+     
+          Employee()
+          {
+               fname = "NULL";
+               lname = "NULL";
+               mnthl_sal = 0.0;
+          }
+
+          void set(String fn,String ln,double ms)
+          {
+               fname = fn;
+               lname = ln;
+               if(ms<0)
+                    mnthl_sal = 0.0;
+               else
+                    mnthl_sal = ms;
+          }
+
+          void get()
+          {
+               System.out.println("\nFirst Name: "+fname);
+               System.out.println("Last Name: "+lname);
+               System.out.println("Monthly Salary: "+mnthl_sal);
+               System.out.println("Yearly Salary of "+fname+" "+lname+" is "+mnthl_sal*12);
+          }
+}
+
+
+public class EmployeeTest 
+{
+     public static void main(String[] args) 
+     {
+          Employee e1 = new Employee();
+          Employee e2 = new Employee();
+
+          Scanner sc = new Scanner(System.in);
+          
+          String fn,ln;
+          double ms;
+          int i;
+          
+          for (i=1; i<=2;i++)
+          {
+               System.out.print("\nEnter Employee first name: ");
+               fn = sc.nextLine();
+               System.out.print("\nEnter Employee last name: ");
+               ln = sc.nextLine();
+               System.out.print("\nEnter Employee monthly salary: ");
+               ms = sc.nextInt();
+
+               sc.nextLine();
+
+               if(i==1)
+                    e1.set(fn,ln,ms);
+               else 
+                    e2.set(fn,ln,ms);
+          }
+
+          System.out.print("\nSalary before the increment is: ");
+          e1.get();
+          e2.get();
+
+          e1.mnthl_sal = e1.mnthl_sal + ((e1.mnthl_sal)*0.10);
+          e2.mnthl_sal = e2.mnthl_sal + ((e2.mnthl_sal)*0.10);
+
+          System.out.print("\nSalary after the increment is: ");
+          e1.get();
+          e2.get();
+     }     
+}
+
+
+//Q3.A Write a Java program for single inheritance diagram
+//SingleInheritance
+
+import java.util.*;
+
+class Person
+{
+     protected
+          String name,aadharno;
+}
+
+class Employee extends Person
+{
+     public
+          int salary;
+          Scanner sc = new Scanner(System.in);
+          void getData()
+          {
+               System.out.println("Enter the name of the employee: ");
+               name = sc.nextLine();
+               System.out.println("Enter the aadhar card no. of the employee: ");
+               aadharno = sc.nextLine();
+               System.out.println("Enter the salary of the employee: ");
+               salary = sc.nextInt();
+          }
+
+          void putData()
+          {
+               System.out.println("Name: "+name);
+               System.out.println("Aadhar No.: "+aadharno);
+               System.out.println("Salary: "+salary);               
+          }
+}
+
+class SingleInheritance
+{
+     public static void main(String[] args) 
+     {
+          Employee E1 = new Employee();
+          E1.getData();
+          E1.putData();               
+     }     
+}
+
+//Q3.B Write a Java Program to demonstrate the use of static variable, static block and static method.
+//DemoStatic3
+
+class DemoStatic3{
+    static{
+        System.out.println("SP");
+    }
+    //static variables
+    static int a=1;
+    static int b=2;
+    static int c;
+
+    //static method
+    static void disp()
+    {
+        c=a*b;
+        System.out.println("Static Method : C = "+c);
+    }
+
+    //static block
+    static {
+        c=a+b;
+        System.out.println("Value of C by static block and static method");
+        System.out.println("Static Block : C = "+c);
+    } 
+
+    public static void main(String args[])
+    {
+        disp();
+    }
+}
+
+
+
+//Q 4 Write a java program for Hierarchical inheritance
+//Demo4
+
+import java.util.Scanner;
+
+class Base {
+    double a;
+    double b;
+
+    Base(double f, double s) {
+        a = f;
+        b = s;
+    }
+}
+
+class Add extends Base {
+    Add(double a, double b) {
+        super(a, b);
+    }
+
+    double add() {
+        return (a + b);
+    }
+}
+
+class Sub extends Base {
+    Sub(double a, double b) {
+        super(a, b);
+    }
+
+    double sub() {
+        return (a - b);
+    }
+}
+
+class Mul extends Base {
+    Mul(double a, double b) {
+        super(a, b);
+    }
+
+    double mul() {
+        return (a * b);
+    }
+}
+
+class Div extends Base {
+    Div(double a, double b) {
+        super(a, b);
+    }
+
+    double div() {
+        return (a / b);
+    }
+}
+
+public class Demo4 {
+    static{
+        System.out.println("Santosh Mane SYB-35");
+    }
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        double x,y;
+
+        System.out.print("Enter Firstno : ");
+        x = scan.nextDouble();
+        System.out.print("Enter Secondno : ");
+        y = scan.nextDouble();
+
+        Base bs = new Base(x, y);
+        Add ad = new Add(x, y);
+        Sub sb = new Sub(x, y);
+        Mul ml = new Mul(x, y);
+        Div dv = new Div(x, y);
+
+        int ch;
+        double addition, subtraction, multiplication, division;
+
+        System.out.println("1.Addition \n 2.Subtraction \n 3.Multiplication \n 4.Division\n");
+        ch = scan.nextInt();
+        switch (ch) {
+            case 1:
+                
+                addition = ad.add();
+                System.out.println("Addition is : " + addition);
+                break;
+
+            case 2:
+                
+                subtraction = sb.sub();
+                System.out.println("Subtraction is : " + subtraction);
+            case 3:
+                
+                multiplication = ml.mul();
+                System.out.println("Multiplication is : " + multiplication);
+            case 4:
+                
+                division = dv.div();
+                System.out.println("Division is : " + division);
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+}
+
+
+//Q 5 Create abstract class shape with dim1, dim2 variables and abstract area() method
+//Abstract5
+
+import java.util.Scanner;
+abstract class Shape{
+    int dim1;
+    int dim2;
+    Shape(int dim1, int dim2)
+    {
+        this.dim1=dim1;
+        this.dim2=dim2;
+    }
+    abstract void area();
+}
+class Rectangle extends Shape{
+    Rectangle(int dim1, int dim2)
+    {
+        super(dim1, dim2);
+    }
+    void area()
+    {
+        System.out.println("Area of Rectangle is : "+(dim1*dim2));
+    }
+}
+class Triangle extends Shape{
+    Triangle(int dim1, int dim2)
+    {
+        super(dim1, dim2);
+    }
+    void area()
+    {
+        System.out.println("Area of Triangle is : "+(dim1*dim2)/2);
+    }
+}
+public class Abstract5 {
+    public static void main(String args[]) {
+        Scanner scan=new Scanner(System.in);
+        System.out.print("Enter Length for Rectangle : ");
+        int x=scan.nextInt();
+        System.out.print("Enter Breadth for Rectangle : ");
+        int y=scan.nextInt();
+        System.out.print("Enter Base for Triangle : ");
+        int p=scan.nextInt();
+        System.out.print("Enter Height for Triangle : ");
+        int q=scan.nextInt();
+
+        // Shape s=new Shape(x,y);
+        Rectangle r=new Rectangle(x,y);
+        Triangle t=new Triangle(p,q);
+        r.area();
+        t.area();
+    }
+}
+
+
+//Q 6 Create the interface stack which has variable size, abstract methods push (), pop (), display (),
+//overflow () and underflow (). Implement subclass IntegerStack by implementing interface.
+//Create one test class and check for the working of all the methods of IntergerStack class.
+//TestStack6
+
+import java.util.*;
+
+interface stack {
+    int size = 5;
+
+    void push();
+
+    void pop();
+
+    void display();
+
+    void overflow();
+
+    void underflow();
+}
+
+class IntegerStack implements stack {
+    int arr[] = new int[size];
+    int Top = 0;
+    Scanner obj = new Scanner(System.in);
+    int n;
+
+    public void underflow() {
+        System.out.println("Stack is Empty\n");
+    }
+
+    public void overflow() {
+        System.out.println("Stack is Full\n");
+    }
+
+    public void push() {
+        if (Top == size) {
+            overflow();
+        } else {
+            System.out.println("Enter the Number to be added in Stack\n");
+            n = obj.nextInt();
+            arr[Top] = n;
+            Top++;
+            System.out.println("Element Added to Stack\n");
+        }
+    }
+
+    public void pop() {
+        if (Top == 0) {
+            underflow();
+        } else {
+            Top--;
+            System.out.println("Number : " + n + " is Removed from stack\n");
+        }
+
+    }
+
+    public void display() {
+        System.out.println("Elements of Stack are :\n");
+        for (int i = 0; i < Top; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
+
+public class TestStack6 {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        IntegerStack stk = new IntegerStack();
+        System.out.println("Stack");
+        int ch;
+        do {
+            System.out.println(
+                    " PRESS 1 : To insert element in stack\n PRESS 2 : To delete element in stack\n PRESS 3 : To Display elements of stack\n PRESS 4 : To Exit\n");
+            //int ch;
+            System.out.println("Enter Your choice\n");
+            ch = obj.nextInt();
+
+            switch (ch) {
+                case 1:
+                    stk.push();
+                    break;
+                case 2:
+                    stk.pop();
+                    break;
+                case 3:
+                    stk.display();
+                case 4:
+                    //exit(1);
+                    break;    
+                default:
+                    System.out.println("Invalid Choice\n");
+                    break;
+            }
+        } while (ch!=4);
+    }
+}
+
+
+//Q 7 Class student with variable rollno, getrollno(), setrollno() methods.
+//IntStudent
+
+import java.util.Scanner;
+class student
+{
+Scanner s = new Scanner(System.in);
+int rollno;
+void getRoll()
+{
+System.out.println("Enter students roll no:");
+rollno = s.nextInt();
+}
+void setRoll()
+{
+System.out.println("The roll no of student is : "+rollno);
+}
+}
+class test extends student
+{
+int sub1,sub2;
+void getMarks()
+{
+System.out.println("Enter marks of student for subject 1:");
+sub1 = s.nextInt();
+System.out.println("Enter marks of student for subject 2:");
+sub2 = s.nextInt();
+}
+void setMarks()
+{
+System.out.println("Marks for subject1: "+sub1);
+System.out.println("Marks for subject2: "+sub2);
+}
+}
+interface sports
+{
+int smarks=88;
+abstract void set();
+}
+class IntStudent extends test implements sports
+{
+public void set()
+{
+System.out.println("Marks for sports : "+smarks);
+}
+public static void main(String args[])
+{
+IntStudent i = new IntStudent();
+i.getRoll();
+i.getMarks();
+i.set();
+i.setRoll();
+i.setMarks();
+}
+}
+
+
+//Q 9 Develop a BankAccount class which should contain all methods of Bank i.e. balanceEnquiry(), withdraw() and deposit().
+//BankApp9
+
+import java.util.*;
+
+class LowBalanceException extends Exception {
+  public String toString() {
+    return "Low balance in Account !";
+  }
+}
+
+class NegativeNumberException extends Exception {
+  public String toString() {
+    return "Plzz insert Positive Amount only ";
+  }
+}
+
+class BankAccount {
+
+  int balance, n, x;
+
+  public void balanceEnquiry() {
+    System.out.println("Your Balance is : " + balance);
+  };
+
+  public void withdraw() throws LowBalanceException, NegativeNumberException {
+
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter Amount to be Withdraw");
+    n = scan.nextInt();
+    if (n < 0) {
+      throw new NegativeNumberException();
+    }
+    if (n > balance) {
+      throw new LowBalanceException();
+    }
+    balance = balance - n;
+    System.out.println("Rupees " + n + " Debited");
+    System.out.println("Updated balance is : " + balance);
+  };
+
+  public void deposit() throws NegativeNumberException {
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter Amount to be Deposited");
+    x = scan.nextInt();
+    if (x < 0) {
+      throw new NegativeNumberException();
+    }
+    balance = balance + x;
+    System.out.println("Rupees " + x + " Credited");
+    System.out.println("Updated balance is : " + balance);
+  };
+}
+
+public class BankApp9 {
+  static int ch;
+
+  public static void main(String[] args) {
+
+    BankAccount bk = new BankAccount();
+
+    System.out.println("Welcome to Bank");
+
+    System.out.println("Select your Choice");
+
+    do {
+      System.out.println("\n1. Balance Enquiry \n2. Withdraw Amount \n3. Deposit Amount \n4. Exit \n");
+
+      Scanner scan = new Scanner(System.in);
+      ch = scan.nextInt();
+
+      switch (ch) {
+        case 1:
+          bk.balanceEnquiry();
+          break;
+        case 2:
+          try {
+
+            bk.withdraw();
+          } catch (LowBalanceException e) {
+            System.out.println(e);
+          } catch (NegativeNumberException e) {
+            System.out.println(e);
+          }
+          System.out.flush();
+          break;
+        case 3:
+          try {
+            bk.deposit();
+          } catch (NegativeNumberException e) {
+            System.out.println(e);
+          }
+          System.out.flush();
+          break;
+        case 4:
+          System.out.println("Thankyou for Banking with Us !");
+          ;
+          break;
+        default:
+          System.out.println("Invalid Choice");
+          System.out.flush();
+          break;
+      }
+    } while (ch != 4);
+  }
+}
+
+
+//Q 10 calculator using swing
+//cal10
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class cal10
+{
+ public static void main(String args[])
+  {
+   operation obj = new operation();
+  }
+ }
+ class operation extends JFrame implements ActionListener
+ {
+   JTextField t1,t2,t3;
+   JButton b1,b2,b3,b4,b5,b6;
+   JLabel l1,l2,l3;
+   public operation()
+   {
+     t1 = new JTextField(15);
+     t2 = new JTextField(15);
+     t3 = new JTextField(15);
+     b1 = new JButton("+");
+     b2 = new JButton("-");
+     b3 = new JButton("*");
+     b4 = new JButton("/");
+     b5 = new JButton("%");
+     b6 = new JButton("clear");
+     l1 = new JLabel("Result");
+     l2 = new JLabel("number 1");
+     l3 = new JLabel("number 2");
+     
+     add(l2);
+     add(t1);
+     add(l3);
+     add(t2);
+     add(l1);
+     add(t3);
+     add(b1);
+     add(b2);add(b3);add(b4);add(b5);add(b6);
+      
+      setLayout(new GridLayout(6,2));
+      setVisible(true);
+      setSize(400,400);
+      
+      b1.addActionListener(this);
+      b2.addActionListener(this);
+      b3.addActionListener(this);
+      b4.addActionListener(this);
+      b5.addActionListener(this);
+      b6.addActionListener(this);
+   }
+   public void actionPerformed(ActionEvent e)
+   {
+    int num1 = Integer.parseInt(t1.getText());  
+    int num2 = Integer.parseInt(t2.getText());
+    int value =0;
+    if(e.getSource()== b1)
+       value = num1 + num2;
+    if(e.getSource()== b2)
+       value = num1 - num2;
+    if(e.getSource() == b3)
+       value = num1 * num2;
+    if(e.getSource() == b4)
+       value = num1 / num2;
+    if(e.getSource() == b5)
+       value = num1 % num2;
+    if(e.getSource() == b6)
+       value =0;
+    t3.setText(value + " ");
+    }
+ }   
+
+
+//Q 11 Write Java GUI Program using Swing to change background on selecting color.
+//11
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.*;
+class colorch extends JFrame implements ActionListener
+{
+  JButton b1,b2,b3;
+  public colorch()
+  {
+	setTitle("color change");
+	b1=new JButton("PINK");
+	b2=new JButton("CYAN");
+	b3=new JButton("GREEN");
+	setSize(400,400);
+	setLayout(null);
+	b1.setBounds(30,100,80,30);
+	b2.setBounds(130,100,80,30);
+	b3.setBounds(230,100,80,30);
+	add(b1); 
+	add(b2); 
+	add(b3);
+	b1.addActionListener(this);
+	b2.addActionListener(this);
+	b3.addActionListener(this);
+	setVisible(true);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+
+  }
+public void actionPerformed(ActionEvent e)
+ {
+	if(e.getSource()==b1)
+	{
+	  getContentPane().setBackground(Color.PINK);
+	}
+	else if(e.getSource()==b2)
+	{
+	  getContentPane().setBackground(Color.CYAN);
+	}
+	else
+	{
+	  getContentPane().setBackground(Color.GREEN);
+	}
+ }
+ public static void main(String args[])
+ {
+     colorch r=new colorch();
+ }
+}
+
+
+//Q 12 Implement following Example of Border Layout
+//bddemo12
+import javax.swing.*;  
+import java.awt.event.*;  
+import java.awt.*;
+public class bddemo12 extends JFrame implements ActionListener
+{
+  JLabel l1,l2;
+  JTextField t1,t2;
+  JButton b1,b2,b3;
+  JPanel p1,p2;
+  public bddemo12()
+  {
+    setTitle("border layout");
+    setLayout(new BorderLayout());
+    l1=new JLabel("enter num");
+    t1=new JTextField(20);
+    p1=new JPanel();
+    setSize(400,400);
+    p1.add(l1);
+    p1.add(t1);
+    add(p1,BorderLayout.NORTH);
+
+    l2=new JLabel("RESULT");
+    t2=new JTextField(20);
+    p2=new JPanel();
+    p2.add(l2);
+    p2.add(t2);
+    add(p2,BorderLayout.SOUTH);
+    b1=new JButton("binary");
+    add(b1,BorderLayout.WEST);
+
+    b2=new JButton("octal");
+    add(b2,BorderLayout.CENTER);
+
+    b3=new JButton("hexadecimal");
+    add(b3,BorderLayout.EAST);
+    
+    b1.addActionListener(this);
+    b2.addActionListener(this);
+    b3.addActionListener(this);
+   setSize(400,400);
+   setVisible(true);  
+   setDefaultCloseOperation(EXIT_ON_CLOSE); 
+  }
+  public void actionPerformed(ActionEvent e1)
+{
+  int num=Integer.parseInt(t1.getText());
+  if(e1.getSource()==b1)
+   {
+      t2.setText(" "+Integer.toBinaryString(num));
+   }  
+  if(e1.getSource()==b2)
+   {
+      t2.setText(" "+Integer.toOctalString(num));
+   }  
+   if(e1.getSource()==b3)
+   {
+      t2.setText(" "+Integer.toHexString(num).toUpperCase());
+   }  
+}
+public static void main(String a[])
+{
+   bddemo12 ob=new bddemo12();
+}
+}
+
+//Q 13 Implement following GUI program to demonstrate of GridLayout
+//Before Clicking  After Clicking
+//13
+
+import javax.swing.*;  
+import java.awt.event.*;  
+import java.awt.*;
+ class gddemo extends JFrame implements ActionListener
+{  
+  boolean flag;
+  JButton b[]=new JButton[6];
+  String name[]={"1","2","3","4","5","6"};
+  public gddemo()
+  {
+    flag=true;
+    setTitle("gridlayout");
+    for(int i=0;i<name.length;i++)
+    {
+    b[i]=new JButton(name[i]);
+    add(b[i]);
+    b[i].addActionListener(this);
+  }
+   setLayout(new GridLayout(2,3));
+   setSize(400,400);
+   setVisible(true);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+}
+public void actionPerformed(ActionEvent e)
+{
+   if(flag)
+   {
+     setLayout(new GridLayout(3,2));
+   }
+   else
+   {
+       setLayout(new GridLayout(2,3));       
+   }
+flag=!flag;
+  validate();
+}
+public static void main(String[] args) 
+{
+  gddemo ob=new gddemo();
+}
+}
+
+
+//Q 14 Implement following GUI program to demonstrate Itemevent. bold & italic
+//14
+
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.*;
+class cbdemo extends JFrame implements ItemListener
+{
+   JTextField t1;
+  JCheckBox b1,b2,b3;
+  public cbdemo()
+  {
+	setTitle("Checkbox demo");        
+            t1=new JTextField(" Welcome to JAVA",20);
+            Font f= new Font("Verdana", Font.PLAIN, 18);
+	t1.setFont(f);
+	b1=new JCheckBox("BOLD");
+	b2=new JCheckBox("ITALIC");	
+            b1.addItemListener(this);
+ 	b2.addItemListener(this);
+
+	setSize(500,500);
+	setLayout(new FlowLayout());	
+	add(b1); 
+	add(b2); 
+	add(t1);	
+	setVisible(true);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+  }
+
+public void itemStateChanged(ItemEvent e)
+ {   int a,b;
+a=((b1.isSelected())?Font.BOLD:Font.PLAIN);
+b=((b2.isSelected())?Font.ITALIC:Font.PLAIN);	
+Font f1=new Font("Verdana", a+b, 18);
+t1.setFont(f1);
+ }
+ public static void main(String args[])
+ {
+     cbdemo r=new cbdemo();
+ }
+}
+
+
+//Q 15.B Java Program to find the Factorial of a Number
+//fact15
+
+import java.util.*;
+public class fact15
+{
+     public static void main(String []args)
+     {
+        //Take input from the user
+        //Create an instance of the Scanner Class
+        Scanner sc=new Scanner(System.in);
+        //Declare and Initialize the variable
+        System.out.println("Enter the number: ");
+        int num=sc.nextInt();
+        int i=1,fact=1;
+        while(i<=num)
+        {
+            fact=fact*i;
+            i++;
+        }
+        System.out.println("Factorial of the number: "+fact);  
+     }   
+}
+
+//@ 15.A. Find the second largest element in an array.
+//SecoLargestNumber15
+
+import java.util.Scanner;
+import java.util.*;  
+
+public class SecoLargestNumber15 {  
+    public static void main(String[] args) {  
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter the size of array: ");
+      int n = sc.nextInt();
+      int arr[] = new int[n];
+      System.out.println("Enter " +n+ " array elements ");
+      for(int i=0; i<n; i++) {
+         arr[i] = sc.nextInt();
+      }
+      Arrays.sort(arr);
+      for(int i=n-1;i>1;i--){
+       if(arr[i]!=arr[i-1]){
+            System.out.println(arr[i-1]+" is second largest element");
+            break;
+        }
+    }
+    
+  }
+}
+
+
+
+//Q 16 Write Java GUI Program using Swing to check given number is prime or not.
+//Prime
+
+
+import javax.swing.*;
+ 
+public class prime {
+ 
+ 
+    public static void main(String[] args) {
+ 
+ 
+        int n,i=2;
+        boolean flag = false; 
+        String numInput;
+        String result;
+ 
+        numInput = JOptionPane.showInputDialog(null, "Enter a number:");
+		n = Integer.parseInt(numInput);
+ 
+ 
+        while (i <= n / 2) {
+            // condition for nonprime number
+            if (n % i == 0) {
+              flag = true;
+              break;
+            }
+      
+            ++i;
+          }
+      
+          if (!flag)
+            result= "Is prime";
+          else
+            result="Not prime";
+        
+    
+         
+         
+        JOptionPane.showMessageDialog(null, "No is: " +result);
+    }
+ 
+}
+
+//Q 17 Write Java Program to perform Binary search.
+//BinarySearch17
+
+import java.util.Scanner;
+import java.util.*;  
+
+class BinarySearch17 {
+    
+    int binarySearch(int arr[], int l, int r, int x)
+    {
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+ 
+        
+            if (arr[mid] == x)
+                return mid;
+ 
+         
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+ 
+          
+            return binarySearch(arr, mid + 1, r, x);
+        }
+ 
+
+        return -1;
+    }
+ 
+
+    public static void main(String args[])
+    {
+        BinarySearch17 ob = new BinarySearch17();
+ 
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the size of array: ");
+            int n = sc.nextInt();
+            int arr[] = new int[n];
+            System.out.println("Enter " +n+ " array elements ");
+            for(int i=0; i<n; i++) 
+            {   arr[i] = sc.nextInt();  }
+        
+        System.out.println("Enter no to find: ");
+        int x = sc.nextInt();
+        int result = ob.binarySearch(arr, 0, n - 1, x);
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at index "
+                               + result);
+    }
+}
+
+
+//Q 18 Write a program to perform multilevel inheritance
+//MultilevelInheritance
+
+class Student
+{
+     protected
+          int roll_no;
+          Student(int rn)
+          {
+               roll_no = rn;
+          }
+}
+
+class Test extends Student
+{
+     int sub1,sub2;
+     Test(int a,int b,int rn)
+     {
+          super(rn);
+          sub1 = a;
+          sub2 = b;          
+     }
+}
+
+class Result extends Test
+{
+     int result;
+     Result(int a,int b,int rn)
+     {
+          super(a,b,rn);
+     }
+     void result()
+     {          
+          System.out.println("Roll No. of student is "+super.roll_no);
+          System.out.println("Result in percentage "+((super.sub1+super.sub2)/2)*100);
+     }
+}
+
+public class MultilevelInheritance
+{
+     public static void main(String[] args) 
+     {
+          Result r = new Result(35,56,2);     
+          r.result();
+     }
+}
+
+
+//Q 19 Java program to demonstrate a Queue
+//QueueInterface_19
+
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueInterface_19 {
+
+	public static void main(String[] args)
+	{
+		Queue<Integer> q
+			= new LinkedList<>();
+
+		// Adds elements {0, 1, 2, 3, 4} to
+		// the queue
+		for (int i = 0; i < 5; i++)
+			q.add(i);
+
+		// Display contents of the queue.
+		System.out.println("Elements of queue "
+						+ q);
+
+		// To remove the head of queue.
+		int removedele = q.remove();
+		System.out.println("removed element-"
+						+ removedele);
+
+		System.out.println(q);
+
+		// To view the head of queue
+		int head = q.peek();
+		System.out.println("head of queue-"
+						+ head);
+
+		// Rest all methods of collection
+		// interface like size and contains
+		// can be used with this
+		// implementation.
+		int size = q.size();
+		System.out.println("Size of queue-"
+						+ size);
+	}
+}
+
+//Q 20. A  find reverse of given number.
+//reversegui_20
+
+import javax.swing.*;
+ 
+public class reversegui_20 {
+ 
+ 
+    public static void main(String[] args) {
+ 
+ 
+        int n,remainder;
+        int result = 0; 
+        String numInput;
+ 
+        numInput = JOptionPane.showInputDialog(null, "Enter a number:");
+		n = Integer.parseInt(numInput);
+ 
+ 
+	              while(n>0){
+              remainder = n%10;
+              result = result * 10 + remainder;
+              n = n/10;
+         }
+ 
+        JOptionPane.showMessageDialog(null, "Reverse number is: " +result);
+    }
+ 
+}
+
+// Q 20.B Demonstrate radiobutton gui
+//RadioButtonExample
+
+
+import javax.swing.*;    
+import java.awt.event.*;    
+class RadioButtonExample extends JFrame implements ActionListener{    
+JRadioButton rb1,rb2;    
+JButton b;    
+RadioButtonExample(){      
+rb1=new JRadioButton("Male");    
+rb1.setBounds(100,50,100,30);      
+rb2=new JRadioButton("Female");    
+rb2.setBounds(100,100,100,30);    
+ButtonGroup bg=new ButtonGroup();    
+bg.add(rb1);bg.add(rb2);    
+b=new JButton("click");    
+b.setBounds(100,150,80,30);    
+b.addActionListener(this);    
+add(rb1);add(rb2);add(b);    
+setSize(300,300);    
+setLayout(null);    
+setVisible(true);    
+}    
+public void actionPerformed(ActionEvent e){    
+if(rb1.isSelected()){    
+JOptionPane.showMessageDialog(this,"You are Male.");    
+}    
+if(rb2.isSelected()){    
+JOptionPane.showMessageDialog(this,"You are Female.");    
+}    
+}    
+public static void main(String args[]){    
+new RadioButtonExample();    
+}}
+
+//Q 21. A  Demonstrate use of super keyword
+//Superkey21
+
+class Animal{  
+    String color="white";  
+    }  
+    class Dog extends Animal{  
+    String color="black";  
+    void printColor(){  
+    System.out.println(color);//prints color of Dog class  
+    System.out.println(super.color);//prints color of Animal class  
+    }  
+    }  
+    class Superkey21{  
+    public static void main(String args[]){  
+    Dog d=new Dog();  
+    d.printColor();  
+    }}  
+    
+//Q 21. B  Find Area of Square, Rectangle and Circle using Method Overloading
+//OverloadDemo
+
+class OverloadDemo__21
+{
+    void area(float x)
+    {
+        System.out.println("the area of the square is "+Math.pow(x, 2)+" sq units");
+    }
+    void area(float x, float y)
+    {
+        System.out.println("the area of the rectangle is "+x*y+" sq units");
+    }
+    void area(double x)
+    {
+        double z = 3.14 * x * x;
+        System.out.println("the area of the circle is "+z+" sq units");
+    }
+}
+class Overload 
+{
+     public static void main(String args[]) 
+	{
+	   OverloadDemo__21 ob = new OverloadDemo__21();
+	   ob.area(5);
+	   ob.area(11,12);
+	   ob.area(2.5);
+        }
+}
+
+
+//Q 22. A  Function MethodOverloading
+//MethodOverloading
+
+class MethodOverloading {
+    private static void display(int a){
+        System.out.println("Arguments: " + a);
+    }
+
+    private static void display(int a, int b){
+        System.out.println("Arguments: " + a + " and " + b);
+    }
+
+    public static void main(String[] args) {
+        display(1);
+        display(1, 4);
+    }
+}
+
+
+//Q 22. B Java Program to illustrate the use of Java Method Overriding  
+//Creating a parent class.  
+//Bike2
+
+class Vehicle{
+  void run(){System.out.println("Vehicle is running");}
+  }
+  class Bike2 extends Vehicle{
+  void run(){System.out.println("Bike is running safely");}
+
+  public static void main(String args[]){
+  Bike2 obj = new Bike2();
+  obj.run();
+  }
+}
+
+
+//Q 23  Write a GUI application to get students information and display it.
+//Student
+
+import java.awt.*;
+import java.awt.event.*;
+
+class Student extends Frame implements ActionListener
+{
+	Label lsname, lsrollno, lsclass, lgander, lsbg, lsmob, lsadrs;
+	CheckboxGroup gander;
+	Checkbox male, female, trainpass;
+	Choice csclass;
+	TextField tfsname, tfsrollno, tfsmob;
+	TextArea tasadrs;
+	Button submit;
+
+	TextArea display_details;
+
+	Student()
+	{
+		lsname   = new Label("Name : ");
+		lsrollno = new Label("Roll No : ");
+		lsclass  = new Label("Class : ");
+		lgander  = new Label("Gander : ");
+		lsbg     = new Label("Blood Group : ");
+		lsmob    = new Label("Mobile : ");
+		lsadrs   = new Label("Address : ");
+
+		gander = new CheckboxGroup();  
+        male   = new Checkbox("Male", gander, false);   
+        female = new Checkbox("Female", gander, false);  
+
+        trainpass = new Checkbox("Apply For Train Concession");
+
+        csclass = new Choice();  
+        csclass.add("BSc IT");  
+        csclass.add("BSc CS");  
+        csclass.add("BCA");  
+        csclass.add("MSc IT");  
+        csclass.add("MSc CS");
+        csclass.add("MCA");
+
+		tfsname   = new TextField();
+		tfsrollno = new TextField();
+		tfsmob    = new TextField();
+
+		tasadrs = new TextArea("", 2 , 100 , TextArea.SCROLLBARS_NONE);
+
+		submit  = new Button("Submit");
+
+		display_details = new TextArea("", 2 , 100 , TextArea.SCROLLBARS_NONE);
+		display_details.setEditable(false);
+
+		lsname.setBounds(10, 30, 50, 20);
+		tfsname.setBounds(70, 30, 150, 20);
+		
+		lsrollno.setBounds(240, 30, 50, 20);
+		tfsrollno.setBounds(300, 30, 150, 20);
+		
+		lsclass.setBounds(10, 60, 50, 20);
+		csclass.setBounds(70, 60, 150, 20);
+		
+		lgander.setBounds(240, 60, 50, 20);
+		male.setBounds(300, 60, 50, 20);
+		female.setBounds(360, 60, 50, 20);
+		
+		lsmob.setBounds(10, 90, 50, 20);
+		tfsmob.setBounds(70, 90, 150, 20);
+
+		trainpass.setBounds(240, 90, 150, 20);
+
+		lsadrs.setBounds(10, 120, 50, 20);
+		tasadrs.setBounds(70, 120, 380, 70);
+
+		submit.setBounds(10, 200, 440, 30);
+
+		display_details.setBounds(10, 240, 440, 130);
+
+		add(lsname);
+		add(lsrollno);
+		add(lsclass);
+		add(lgander);
+		add(lsbg);
+		add(lsadrs);
+		add(lsmob);
+
+		add(male);
+		add(female);
+
+		add(csclass);
+
+		add(tfsname);
+		add(tfsrollno);
+		add(tasadrs);
+		add(tfsmob);
+
+		add(trainpass);
+
+		add(submit);
+
+		add(display_details);
+
+		submit.addActionListener(this);
+
+		setTitle("Students Details");
+		setSize(460,390);
+		setLayout(null);
+		setVisible(true);
+
+		addWindowListener(new WindowAdapter()
+		{  
+            public void windowClosing(WindowEvent e)
+            {  
+                dispose();  
+            }  
+        });
+	}
+
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==submit)
+		{
+			String tp = trainpass.getState() ? "Applied for Train Concession" : "Not Applied for Train Concession";
+
+			String sdetails = " ***** Students Details *****n Name : " + tfsname.getText() + "n Roll No. :" + tfsrollno.getText() + "n Class : " + csclass.getSelectedItem() + "n Gander : " + gander.getSelectedCheckbox().getLabel() + "n Mobile : " + tfsmob.getText() + "n Train Pass : " + tp + "n Address : " + tasadrs.getText();
+
+			display_details.setText(sdetails);
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		new Student();
+	}
+}
+
+
+//Q 24. A  Extending the Thread Class
+//SleepExp1
+
+public class SleepExp1 extends Thread
+{
+public void run()
+{
+for(int i=1;i<5;i++)
+{
+try
+{ Thread.sleep(500);
+}catch(InterruptedException e){System.out.println(e);}
+System.out.println(i);
+}
+}
+public static void main(String args[])
+{ SleepExp1 thread1=new SleepExp1();
+thread1.start();
+}
+}
+
+
+//Q 24 . B  Implementing the Runnable Interface
+//RunExp1
+
+public class RunExp1 implements Runnable
+{ public void run()
+{ System.out.println("Thread is running..."); }
+public static void main(String args[])
+{
+RunExp1 r1=new RunExp1();
+Thread thread1 =new Thread(r1);
+thread1.start();
+}
+}
